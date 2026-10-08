@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d7dbe8 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #d7dbe8;
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html,
+body {
+  background-color: #f6f7fb;
+  color: #14161f;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.18);
+  color: #14161f;
+}
+
+@layer components {
+  .glass-panel {
+    @apply relative rounded-2xl border border-black/[0.06] bg-white/70 backdrop-blur-xl;
+  }
+
+  .glass-card {
+    @apply relative rounded-2xl border border-black/[0.06] bg-white/80 backdrop-blur-xl shadow-glass transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply border-black/[0.1] bg-white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-signal px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:shadow-glow hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-black/[0.09] bg-black/[0.02] px-5 py-2.5 text-sm font-medium text-ink-100 transition-all duration-200 hover:border-black/20 hover:bg-black/[0.045] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-ink-500 transition-colors duration-200 hover:bg-black/[0.045] hover:text-ink-100;
+  }
+
+  .label-eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-500;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(11, 13, 20, 0.02) 0%,
+      rgba(11, 13, 20, 0.07) 20%,
+      rgba(11, 13, 20, 0.02) 40%
+    );
+    background-size: 1400px 100%;
+    @apply animate-shimmer;
+  }
+}
